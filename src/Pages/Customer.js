@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const CustomerList = () => {
   const [customerList, setCustomerList] = useState([]);
   useEffect(() => {
-    Axios.get("http://localhost:5000/api/customers").then(function (response) {
+    Axios.get("https://spx-bank.herokuapp.com/api/customers").then(function (response) {
       setCustomerList(response.data);
     });
   }, []);

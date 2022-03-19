@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const TransactionHistory = () => {
   const [history, setHistory] = useState([]);
   useEffect(() => {
-    Axios.get("http://localhost:5000/api/history").then(function (
+    Axios.get("https://spx-bank.herokuapp.com/api/history").then(function (
       response
     ) {
       setHistory(response.data);

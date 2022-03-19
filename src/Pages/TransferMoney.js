@@ -42,7 +42,7 @@ const TransferMoney = () => {
     if (isFormValid) {
       axios({
         method: "post",
-        url: "http://localhost:5000/api/customers/transfer-money",
+        url: "https://spx-bank.herokuapp.com/api/customers/transfer-money",
         data: data,
       })
         .then((res) => {
@@ -84,7 +84,7 @@ const TransferMoney = () => {
             onBlur={(event) => {
               axios
                 .get(
-                  "http://localhost:5000/api/customers/" + event.target.value
+                  "https://spx-bank.herokuapp.com/api/customers/" + event.target.value
                 )
                 .then((res) => {
                   setIsSenderNameExist(res.data);
@@ -113,7 +113,7 @@ const TransferMoney = () => {
             onBlur={(event) => {
               axios
                 .get(
-                  "http://localhost:5000/api/customers/" +
+                  "https://spx-bank.herokuapp.com/api/customers/" +
                     event.target.value
                 )
                 .then((res) => {

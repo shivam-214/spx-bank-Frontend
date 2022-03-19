@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Fragment, Suspense } from "react";
 import Header from "./Components/Header";
 import { Navigate, Route, Routes } from "react-router-dom";
 
@@ -23,7 +23,7 @@ function App() {
     </Routes>
   );
   return (
-    <>
+    <Fragment>
       <Header />
       <main>
         <Suspense
@@ -37,7 +37,7 @@ function App() {
         </Suspense>
       </main>
       <Footer />
-    </>
+    </Fragment>
   );
 }
 

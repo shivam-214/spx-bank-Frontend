@@ -1,10 +1,16 @@
+import React, { Suspense } from "react";
 import Header from "./Components/Header";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Homepage from "./Pages/Homepage";
-import Customer from "./Pages/Customer";
-import TransferMoney from "./Pages/TransferMoney";
-import TransactionHistory from "./Pages/TransactionHistory";
+
+import LoadingSpinner from "./Components/LoadingSpinner";
 import Footer from "./Components/Footer";
+
+const Homepage = React.lazy(() => import("./Pages/Homepage"));
+const Customer = React.lazy(() => import("./Pages/Customer"));
+const TransferMoney = React.lazy(() => import("./Pages/TransferMoney"));
+const TransactionHistory = React.lazy(() =>
+  import("./Pages/TransactionHistory")
+);
 
 function App() {
   const routes = (
@@ -19,7 +25,17 @@ function App() {
   return (
     <>
       <Header />
-      <main>{routes}</main>
+      <main>
+        <Suspense
+          fallback={
+            <div className="center">
+              <LoadingSpinner />
+            </div>
+          }
+        >
+          {routes}
+        </Suspense>
+      </main>
       <Footer />
     </>
   );
